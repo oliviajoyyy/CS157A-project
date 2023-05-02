@@ -67,3 +67,7 @@ day CHAR(3) NOT NULL,
 PRIMARY KEY (lessonID, day),
 FOREIGN KEY (lessonID) REFERENCES lesson(lessonID)
 );
+
+-- in testing the DB schema, a couple errors were found. they are now fixed here.
+ALTER TABLE Instructor MODIFY COLUMN phoneNumber VARCHAR(15) NOT NULL;
+ALTER TABLE Location RENAME COLUMN LocationID to locationID;
