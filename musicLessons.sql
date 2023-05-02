@@ -39,30 +39,30 @@ FOREIGN KEY (locationID) REFERENCES Location(locationID)
 );
 
 CREATE TABLE CustomerLesson (
-customerID INTEGER UNIQUE NOT NULL,
-lessonID INTEGER UNIQUE NOT NULL,
+customerID INTEGER NOT NULL,
+lessonID INTEGER NOT NULL,
 PRIMARY KEY (customerID, lessonID),
 FOREIGN KEY (customerID) REFERENCES Customer(customerID),
 FOREIGN KEY (lessonID) REFERENCES Lesson(lessonID)
 );
 
 CREATE TABLE InstructorLesson (
-instructorID INTEGER UNIQUE NOT NULL,
-lessonID INTEGER UNIQUE NOT NULL,
+instructorID INTEGER NOT NULL,
+lessonID INTEGER NOT NULL,
 PRIMARY KEY (instructorID, lessonID),
 FOREIGN KEY (instructorID) REFERENCES Instructor(instructorID),
 FOREIGN KEY (lessonID) REFERENCES Lesson(lessonID)
 );
 
 CREATE TABLE InstructorSpecialty (
-instructorID INTEGER UNIQUE NOT NULL,
+instructorID INTEGER NOT NULL,
 specialty VARCHAR(15) NOT NULL,
 PRIMARY KEY (instructorID, specialty),
 FOREIGN KEY (instructorID) REFERENCES Instructor(instructorID)
 );
 
 CREATE TABLE LessonDay (
-lessonID INTEGER UNIQUE NOT NULL,
+lessonID INTEGER NOT NULL,
 day CHAR(3) NOT NULL,
 PRIMARY KEY (lessonID, day),
 FOREIGN KEY (lessonID) REFERENCES lesson(lessonID)
