@@ -67,7 +67,7 @@ SELECT Customer.customerID, customerName, Lesson.lessonName, Lesson.instrument F
 SELECT Lesson.lessonID, Lesson.lessonName, maxParticipants, Location.description FROM Lesson INNER JOIN Location ON Lesson.locationID = Location.locationID AND maxParticipants < 25;
 
 
--- More insertion and info retrieval, probably too long for demo in presentation
+-- More insertion
 -- Instructor
 DELETE FROM Instructor WHERE instructorID = 1;
 DELETE FROM Instructor WHERE instructorID = 2;
@@ -84,3 +84,31 @@ SELECT * FROM Instructor;
 
 SELECT * FROM Location WHERE maxParticipants < 25;
 SELECT * FROM Lesson WHERE instrument = 'guitar';
+
+
+-- InstructorLesson
+TRUNCATE InstructorLesson;
+INSERT INTO InstructorLesson(instructorID, lessonID) VALUES (1, 1);
+INSERT INTO InstructorLesson(instructorID, lessonID) VALUES (1, 2);
+INSERT INTO InstructorLesson(instructorID, lessonID) VALUES (2, 3);
+INSERT INTO InstructorLesson(instructorID, lessonID) VALUES (3, 4);
+
+-- InstructorSpecialty
+TRUNCATE InstructorSpecialty;
+INSERT INTO InstructorSpecialty(instructorID, specialty) VALUES (1, 'guitar');
+INSERT INTO InstructorSpecialty(instructorID, specialty) VALUES (1, 'piano');
+INSERT INTO InstructorSpecialty(instructorID, specialty) VALUES (2, 'trumpet');
+INSERT INTO InstructorSpecialty(instructorID, specialty) VALUES (3, 'drums');
+INSERT INTO InstructorSpecialty(instructorID, specialty) VALUES (3, 'guitar');
+
+-- LessonDay
+TRUNCATE LessonDay;
+INSERT INTO LessonDay(lessonID, day) VALUES (1, 'Mon');
+INSERT INTO LessonDay(lessonID, day) VALUES (1, 'Wed');
+INSERT INTO LessonDay(lessonID, day) VALUES (2, 'Tue');
+INSERT INTO LessonDay(lessonID, day) VALUES (2, 'Thu');
+INSERT INTO LessonDay(lessonID, day) VALUES (3, 'Tue');
+INSERT INTO LessonDay(lessonID, day) VALUES (3, 'Thu');
+INSERT INTO LessonDay(lessonID, day) VALUES (4, 'Wed');
+INSERT INTO LessonDay(lessonID, day) VALUES (4, 'Fri');
+
